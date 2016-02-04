@@ -1,4 +1,5 @@
 package Dancer::Plugin::uRBAC;
+# ABSTRACT: Плагин взаимодействия с ролями для Dancer.
 
 use strict;
 use warnings;
@@ -6,6 +7,7 @@ use warnings;
 use Dancer ':syntax';
 use Dancer::Plugin;
 use Dancer::Plugin::DBIC;
+use Dancer::Plugin::FlashNote;
 
 use FAW::uRoles;
 use Data::Dump qw(dump);
@@ -17,6 +19,7 @@ use Digest::MD5 qw(md5_hex);
 my $conf = plugin_setting;
 
 # просолить пароль по стандарту
+
 sub salt_pass {
     my $upass   = shift;
     my $salt    = shift;
